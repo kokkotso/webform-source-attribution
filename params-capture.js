@@ -1,31 +1,31 @@
-// Capture & parse url parameters
-const queryString = window.location.search;
+function storeParamsInSession() {
+  // Capture & parse url parameters
+  const queryString = window.location.search;
 
-// List values for retrieval
-const captureFields = [
+  // List values for retrieval
+  const captureFields = [
     ["utm_source", "utmSource"],
     ["utm_medium", "utmMedium"],
     ["utm_campaign", "utmCampaign"],
-    ["gclid", "gclid"]
-];
+    ["gclid", "gclid"],
+  ];
 
-// console.log(Array.isArray(captureFields));
+  // console.log(Array.isArray(captureFields));
 
-// Store params in sessionStorage
-if (queryString) {
+  // Store params in sessionStorage
+  if (queryString) {
     const urlParams = new URLSearchParams(queryString);
 
     // Loop through capture fields
     captureFields.forEach((field) => {
-        const fieldVal = urlParams.get(field[0]);
+      const fieldVal = urlParams.get(field[0]);
 
-        // Add to sessionStorage
-        if (fieldVal) {
-            sessionStorage.setItem(field[1], fieldVal)
-        }
+      // Add to sessionStorage
+      if (fieldVal) {
+        sessionStorage.setItem(field[1], fieldVal);
+      }
     });
+  }
 }
 
-
-
-
+Window.onload = storeParamsInSession();
