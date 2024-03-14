@@ -1,4 +1,4 @@
-function storeParamsInSession() {
+function captureParams() {
   // Capture & parse url parameters
   const queryString = window.location.search;
 
@@ -28,4 +28,4 @@ function storeParamsInSession() {
   }
 }
 
-Window.onload = storeParamsInSession();
+Window.onload = captureParams();
