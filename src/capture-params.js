@@ -23,15 +23,5 @@ export function captureParams() {
         sessionStorage.setItem(field[1], fieldVal);
       }
     });
-
-    const event = new Event("paramsLoaded", {
-      bubbles: true,
-      cancelable: true,
-      composed: false,
-    });
-
-    document.dispatchEvent(event);
   }
 }
-
-
