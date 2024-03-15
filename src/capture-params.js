@@ -1,4 +1,4 @@
-function captureParams() {
+export function captureParams() {
   // Capture & parse url parameters
   const queryString = window.location.search;
 
@@ -9,8 +9,6 @@ function captureParams() {
     ["utm_campaign", "utmCampaign"],
     ["gclid", "gclid"],
   ];
-
-  // console.log(Array.isArray(captureFields));
 
   // Store params in sessionStorage
   if (queryString) {
@@ -25,7 +23,15 @@ function captureParams() {
         sessionStorage.setItem(field[1], fieldVal);
       }
     });
+
+    const event = new Event("paramsLoaded", {
+      bubbles: true,
+      cancelable: true,
+      composed: false,
+    });
+
+    document.dispatchEvent(event);
   }
 }
 
-Window.onload = captureParams();
+

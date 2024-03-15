@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "esbuild": "0.20.2"
+  },
+  "scripts": {
+    "build": "esbuild src/webform-source-attribution.js --bundle --outfile=webform-source-attribution-dist.js"
+  }
+}
